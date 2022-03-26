@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace BrewNotifications.Entities.Company
 {
-    public class StateChangedNotifier : IEntityStateChangedHandler
+    public class CompanyStateChangedNotifier : IEntityStateChangedHandler
     {
         private readonly INotificationWriter _notificationWriter;
         private readonly IEnumerable<IChangeStateValidator> _notificationConditions;
 
-        public StateChangedNotifier(INotificationWriter notificationWriter, IEnumerable<IChangeStateValidator> notificationConditions)
+        public CompanyStateChangedNotifier(INotificationWriter notificationWriter, IEnumerable<IChangeStateValidator> notificationConditions)
         {
             _notificationWriter = notificationWriter;
             _notificationConditions = notificationConditions;

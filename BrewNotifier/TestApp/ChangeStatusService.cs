@@ -1,4 +1,5 @@
 ﻿using BrewNotifications.Entities.Company;
+using BrewNotifications.Entities.CompanyCompetitor;
 using BrewNotifications.Entities.Core;
 using BrewNotifier.Entities.BL;
 using System;
@@ -20,21 +21,28 @@ namespace TestApp
 
         public async Task Run()
         {
-            WriteToConsole("creating a new company");
-            var company = CreateNewCompany();
+            WriteToConsole("creating a new company by the name 'original'");
+            var company = CreateNewCompany("original");
             HandleChange(company, null, company.EntityType);
-
             await Task.Delay(2000);
 
             WriteToConsole("Mark company for deletion");
             var makredCompany = ChangeCompanyDeletionStatus(company);
             HandleChange(makredCompany, company, company.EntityType);
+            await Task.Delay(2000);
 
+            WriteToConsole("Creating a competitor company by the name by the name 'competitor'");
+            var competitor = CreateNewCompany("competitor");
+            HandleChange(competitor, null, competitor.EntityType);
+            await Task.Delay(2000);
+
+            WriteToConsole("Mark 'competitor' a competition to 'original'");
+            var companyCompetition = CreateNewCompanyCompetition(makredCompany, competitor);
+            HandleChange(companyCompetition, null, companyCompetition.EntityType);
             await Task.Delay(2000);
 
 
-
-            WriteToConsole("Delete company");
+            WriteToConsole("Delete 'original' company");
             HandleChange(null, makredCompany, makredCompany.EntityType);
 
             WriteToConsole("Done! No more Changes will be made...");
@@ -42,10 +50,20 @@ namespace TestApp
 
         }
 
-        private CompanyEntity CreateNewCompany()
+        private CompanyEntity CreateNewCompany(string name)
         {
             var company = new CompanyEntity();
+            company.Name = name;
             return company;
+        }
+
+        private CompanyCompetitorEntity CreateNewCompanyCompetition(CompanyEntity company, CompanyEntity competitor)
+        {
+            return new CompanyCompetitorEntity
+            {
+                Company = company,
+                Competitor = competitor
+            };
         }
 
         private CompanyEntity ChangeCompanyDeletionStatus(CompanyEntity companyEntity)

@@ -34,8 +34,8 @@ namespace BrewNotifier.Entities.BL
     {
         public bool ValidateChange(IEntity entity, IEntity originalEntity)
         {
-            var crawlableEntity = entity as CrawlableEntity;
-            var origianlCrawlableEntity = originalEntity as CrawlableEntity;
+            var crawlableEntity = entity as IDeleteable;
+            var origianlCrawlableEntity = originalEntity as IDeleteable;
             return
                 (crawlableEntity != null && origianlCrawlableEntity != null) &&
                 crawlableEntity.IsDeleted != origianlCrawlableEntity.IsDeleted;

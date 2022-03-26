@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BrewNotifications.Entities.Core
 {
-    public class CrawlableEntity
+    public class CrawlableEntity: IDeleteable
     {
         public string Link { get; set; }
         public string Name { get; set; }

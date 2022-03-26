@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BrewNotifications.Entities.CompanyCompetitor\BrewNotifications.Entities.CompanyCompetitor.csproj" />
     <ProjectReference Include="..\BrewNotifications.Entities.Company\BrewNotifications.Entities.Company.csproj" />
     <ProjectReference Include="..\BrewNotifier.Entities.BL\BrewNotifier.Entities.BL.csproj" />
     <ProjectReference Include="..\BrewNotifier.Notifications.InMemeory\BrewNotifier.Notifications.InMemeory.csproj" />

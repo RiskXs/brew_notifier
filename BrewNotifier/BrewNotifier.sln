@@ -13,13 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notifications", "Notificati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrewNotifier.Notifications.InMemeory", "BrewNotifier.Notifications.InMemeory\BrewNotifier.Notifications.InMemeory.csproj", "{EDA34EDA-7C99-4051-BFC4-C450CAE018E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewNotifications.Entities.Company", "BrewNotifications.Entities.Company\BrewNotifications.Entities.Company.csproj", "{FE83C68D-4DDD-45FB-9165-5F9BB0197F78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrewNotifications.Entities.Company", "BrewNotifications.Entities.Company\BrewNotifications.Entities.Company.csproj", "{FE83C68D-4DDD-45FB-9165-5F9BB0197F78}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{297B78B5-6632-4CCC-BEDC-A45D643561CA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Company", "Company", "{5B1721D3-C162-4608-9956-9666B8D7E30C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityTypes", "EntityTypes", "{5B1721D3-C162-4608-9956-9666B8D7E30C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{B50CDE16-5516-4298-AED1-916338C5FB82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp.csproj", "{B50CDE16-5516-4298-AED1-916338C5FB82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewNotifications.Entities.CompanyCompetitor", "BrewNotifications.Entities.CompanyCompetitor\BrewNotifications.Entities.CompanyCompetitor.csproj", "{4EA1B103-92A9-45F1-B475-3744448CCA09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{B50CDE16-5516-4298-AED1-916338C5FB82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B50CDE16-5516-4298-AED1-916338C5FB82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B50CDE16-5516-4298-AED1-916338C5FB82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EA1B103-92A9-45F1-B475-3744448CCA09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EA1B103-92A9-45F1-B475-3744448CCA09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EA1B103-92A9-45F1-B475-3744448CCA09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EA1B103-92A9-45F1-B475-3744448CCA09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{EDA34EDA-7C99-4051-BFC4-C450CAE018E3} = {51143A02-B0A0-4B14-B8D2-83ADA9DE7E7B}
 		{FE83C68D-4DDD-45FB-9165-5F9BB0197F78} = {5B1721D3-C162-4608-9956-9666B8D7E30C}
 		{5B1721D3-C162-4608-9956-9666B8D7E30C} = {297B78B5-6632-4CCC-BEDC-A45D643561CA}
+		{4EA1B103-92A9-45F1-B475-3744448CCA09} = {5B1721D3-C162-4608-9956-9666B8D7E30C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DC97F683-A8C1-4154-A61A-B9F3A13F4BB5}

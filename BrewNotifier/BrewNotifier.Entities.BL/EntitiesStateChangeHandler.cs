@@ -20,7 +20,7 @@ namespace BrewNotifier.Entities.BL
 
         public Task OnEntityStateChanged(IEntity entity, IEntity originalEntity, string entityType)
         {
-            var stateChangedHandler = _entityTypesHandler.GetValueOrDefault(entityType);
+            var stateChangedHandler = _entityTypesHandler.GetValueOrDefault(entityType.ToLower());
             if(stateChangedHandler == null)
             {
                 return Task.CompletedTask;

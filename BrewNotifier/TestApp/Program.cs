@@ -1,4 +1,5 @@
 ﻿using BrewNotifications.Entities.Company;
+using BrewNotifications.Entities.CompanyCompetitor;
 using BrewNotifications.Entities.Core;
 using BrewNotifier.Entities.BL;
 using BrewNotifier.Notifications.InMemeory;
@@ -25,12 +26,19 @@ namespace TestApp
         {
             Dictionary<string, IEntityStateChangedHandler> entityTypesHandler = new Dictionary<string, IEntityStateChangedHandler>
             {
-                {CompanyEntity.EntityName,  new StateChangedNotifier(notificationsQueue, new List<IChangeStateValidator>(){
+                {CompanyEntity.EntityName.ToLower(),  new CompanyStateChangedNotifier(notificationsQueue, new List<IChangeStateValidator>(){
                     ChangeStateValidators.IsEntityCreated,
                     ChangeStateValidators.IsEntityDeleted,
                     ChangeStateValidators.IsEntityMarkedForDeletion,
                     ChangeStateValidators.IsEntityCrawlingStatusChangedSignificantly
-                })}
+                    })
+                },
+                {CompanyCompetitorEntity.EntityName.ToLower(),  new CompanyCompetitorStateChangedNotifier(notificationsQueue, new List<IChangeStateValidator>(){
+                    ChangeStateValidators.IsEntityCreated,
+                    ChangeStateValidators.IsEntityDeleted,
+                    ChangeStateValidators.IsEntityMarkedForDeletion
+                    })
+                }
             };
 
             return new EntitiesStateChangeHandler(entityTypesHandler);
