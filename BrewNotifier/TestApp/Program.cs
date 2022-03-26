@@ -25,7 +25,12 @@ namespace TestApp
         {
             Dictionary<string, IEntityStateChangedHandler> entityTypesHandler = new Dictionary<string, IEntityStateChangedHandler>
             {
-                {CompanyEntity.EntityName,  new StateChangedNotifier(notificationsQueue)}
+                {CompanyEntity.EntityName,  new StateChangedNotifier(notificationsQueue, new List<IChangeStateValidator>(){
+                    ChangeStateValidators.IsEntityCreated,
+                    ChangeStateValidators.IsEntityDeleted,
+                    ChangeStateValidators.IsEntityMarkedForDeletion,
+                    ChangeStateValidators.IsEntityCrawlingStatusChangedSignificantly
+                })}
             };
 
             return new EntitiesStateChangeHandler(entityTypesHandler);

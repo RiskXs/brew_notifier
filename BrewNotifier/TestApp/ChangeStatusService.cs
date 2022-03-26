@@ -32,10 +32,12 @@ namespace TestApp
 
             await Task.Delay(2000);
 
+
+
             WriteToConsole("Delete company");
             HandleChange(null, makredCompany, makredCompany.EntityType);
 
-            WriteToConsole("I'm Done! No more Changes will be made...");
+            WriteToConsole("Done! No more Changes will be made...");
 
 
         }

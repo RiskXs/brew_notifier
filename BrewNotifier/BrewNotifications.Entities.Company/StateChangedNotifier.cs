@@ -11,10 +11,12 @@ namespace BrewNotifications.Entities.Company
     public class StateChangedNotifier : IEntityStateChangedHandler
     {
         private readonly INotificationWriter _notificationWriter;
+        private readonly IEnumerable<IChangeStateValidator> _notificationConditions;
 
-        public StateChangedNotifier(INotificationWriter notificationWriter)
+        public StateChangedNotifier(INotificationWriter notificationWriter, IEnumerable<IChangeStateValidator> notificationConditions)
         {
             _notificationWriter = notificationWriter;
+            _notificationConditions = notificationConditions;
         }
         public Task OnStateChanges(IEntity entity, IEntity originalEntity)
         {
@@ -30,35 +32,9 @@ namespace BrewNotifications.Entities.Company
             return _notificationWriter.Notify(notifiedEntity);
         }
 
-        private bool ShouldNotify(CompanyEntity company, CompanyEntity originalCompany)
+        private bool ShouldNotify(IEntity entity, IEntity originalEntity)
         {
-            return
-                IsNewCompany(company, originalCompany) ||
-                IsCompanyDeleted(company, originalCompany) ||
-                isEntityDeletionStatusChanged(company, originalCompany) ||
-                isCrawlingStatusChangedSignificantly(company, originalCompany);
-        }
-
-        private bool IsNewCompany(CompanyEntity entity, CompanyEntity originalEntity)
-        {
-            return entity != null && originalEntity == null;
-        }
-
-        private bool IsCompanyDeleted(CompanyEntity entity, CompanyEntity originalEntity)
-        {
-            return entity == null && originalEntity != null;
-        }
-
-        private bool isEntityDeletionStatusChanged(CompanyEntity entity, CompanyEntity originalEntity)
-        {
-            return entity.IsDeleted != originalEntity.IsDeleted;
-        }
-
-        private bool isCrawlingStatusChangedSignificantly(CompanyEntity entity, CompanyEntity originalEntity)
-        {
-            return
-                entity.CrawlingStatus != originalEntity.CrawlingStatus &&
-                (entity.CrawlingStatus == CrawlingStatus.TEXT_ANALYZED || entity.CrawlingStatus == CrawlingStatus.TEXT_UPLOADED);
+            return _notificationConditions.Any(validator => validator.ValidateChange(entity, originalEntity));
         }
     }
 }
