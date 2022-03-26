@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BrewNotifications.Entities.Core
 {
-    public interface IEntityStateManager
+    public interface IEntityStateChangedHandler
     {
-        IEntityStateDetails OnStateChanges(IEntity entity, IEntity originalEntity);
+        Task OnStateChanges(IEntity entity, IEntity originalEntity);
     }
 }
