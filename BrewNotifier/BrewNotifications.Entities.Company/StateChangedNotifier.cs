@@ -23,10 +23,11 @@ namespace BrewNotifications.Entities.Company
 
             if (!ShouldNotify(company, originalCompany))
             {
-                return _notificationWriter.Notify(entity);
+                return Task.CompletedTask;
             }
 
-            return Task.CompletedTask;
+            var notifiedEntity = company ?? originalCompany;
+            return _notificationWriter.Notify(notifiedEntity);
         }
 
         private bool ShouldNotify(CompanyEntity company, CompanyEntity originalCompany)

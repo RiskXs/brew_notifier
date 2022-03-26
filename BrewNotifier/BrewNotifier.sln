@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{29
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Company", "Company", "{5B1721D3-C162-4608-9956-9666B8D7E30C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{B50CDE16-5516-4298-AED1-916338C5FB82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{FE83C68D-4DDD-45FB-9165-5F9BB0197F78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE83C68D-4DDD-45FB-9165-5F9BB0197F78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE83C68D-4DDD-45FB-9165-5F9BB0197F78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B50CDE16-5516-4298-AED1-916338C5FB82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B50CDE16-5516-4298-AED1-916338C5FB82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B50CDE16-5516-4298-AED1-916338C5FB82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B50CDE16-5516-4298-AED1-916338C5FB82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
