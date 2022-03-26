@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BrewNotifications.Entities.Core\BrewNotifications.Entities.Core.csproj" />
+    <ProjectReference Include="..\BrewNotifier.Notifications\BrewNotifier.Notifications.csproj" />
+  </ItemGroup>
+
+</Project>
